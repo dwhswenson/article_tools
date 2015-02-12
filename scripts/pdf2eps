@@ -1,0 +1,8 @@
+#!/bin/bash
+# pdftops is part of the poppler system
+
+fbase=`echo $1 | sed 's/.pdf//'`
+
+pdfcrop $1 ${fbase}-tmp.pdf
+pdftops ${fbase}-tmp.pdf ${fbase}.eps
+rm -f ${fbase}-tmp.pdf
